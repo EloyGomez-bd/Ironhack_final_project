@@ -1,2 +1,2 @@
 # Ironhack_final_project
-Exploration of US Pipeline Incident data over the last 20 years. 
+Exploration and machine learning modelling of US Pipeline Incident data over the last 20 years. 
