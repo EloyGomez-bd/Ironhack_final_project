@@ -1,13 +1,14 @@
-import pandas as pd
 
 columns_to_fill_zeros = ['FATAL', 'INJURE', 'INC_PRES']
 
 columns_to_fill_empty = ['ONSHORE_CITY_NAME', 'OFF_ACCIDENT_ORIGIN', 'ONSHORE_COUNTY_NAME',
                          'ONSHORE_STATE_ABBREVIATION', 'OFFSHORE_STATE_ABBREVIATION']
 
-def on_offshore(df_list, column_list):
+def on_offshore(df_list, column_list, list_index):
 
-    list_index = [2, 7]
+    """ Fix locations of datesets hl2010toPresent and gtggungs2010toPresent """
+
+    print('Classifying onshore and offshore incidents...')
 
     for i in list_index:
 
@@ -28,6 +29,8 @@ def fillna_empty(df_list, column_list):
 
     """Fill column nan values with empty values"""
 
+    print(f'Filling nan values from {column_list} with empty values')
+
     for df in df_list:
 
         for column in column_list:
@@ -40,6 +43,8 @@ def fillna_empty(df_list, column_list):
 def fillna_zeros(df_list, column_list):
 
     """Fill column nan values with zeros"""
+
+    print(f'Filling nan values from {column_list} with empty values')
 
     for df in df_list:
 
@@ -57,4 +62,4 @@ def processing(df_list):
 
     fillna_zeros(df_list, columns_to_fill_zeros)
 
-    on_offshore(df_list, columns_to_fill_empty)
+    on_offshore(df_list, columns_to_fill_empty, [2, 7])
