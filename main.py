@@ -1,7 +1,6 @@
 import argparse
 import pandas as pd
 from p_acquisition.m_acquisition import df_classifier
-from
 
 
 def argument_parser():
@@ -31,7 +30,8 @@ def main(arguments):
 
     list_of_datasets = df_classifier(path, 'all', 1)
 
-    pro list_of_datasets
+    print(list_of_datasets)
+
 
 if __name__ == '__main__':
 
