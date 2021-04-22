@@ -5,6 +5,7 @@ columns_to_fill_zeros = ['FATAL', 'INJURE', 'INC_PRES']
 columns_to_fill_empty = ['ONSHORE_CITY_NAME', 'OFF_ACCIDENT_ORIGIN', 'ONSHORE_COUNTY_NAME',
                          'OFFSHORE_COUNTY_NAME', 'ONSHORE_STATE_ABBREVIATION', 'OFFSHORE_STATE_ABBREVIATION']
 
+
 def on_offshore(df_list, index):
 
     """ Fix locations of datesets hl2010toPresent and gtggungs2010toPresent """
@@ -13,15 +14,12 @@ def on_offshore(df_list, index):
 
     for i in index:
 
-        df_list[i]['LOCATION_CITY_NAME'] = df_list[i].apply(lambda x:
-                                                                x.ONSHORE_CITY_NAME +
-                                                                x.OFF_ACCIDENT_ORIGIN, axis=1)
-        df_list[i]['LOCATION_COUNTY_NAME'] = df_list[i].apply(lambda x:
-                                                                  x.ONSHORE_COUNTY_NAME +
-                                                                  x.OFFSHORE_COUNTY_NAME, axis=1)
-        df_list[i]['LOCATION_STATE_ABBREVIATION'] = df_list[i].apply(lambda x:
-                                                                         x.ONSHORE_STATE_ABBREVIATION +
-                                                                         x.OFFSHORE_STATE_ABBREVIATION, axis=1)
+        df_list[i]['LOCATION_CITY_NAME'] = df_list[i].apply(lambda x: x.ONSHORE_CITY_NAME + x.OFF_ACCIDENT_ORIGIN,
+                                                            axis=1)
+        df_list[i]['LOCATION_COUNTY_NAME'] = df_list[i].apply(lambda x: x.ONSHORE_COUNTY_NAME + x.OFFSHORE_COUNTY_NAME,
+                                                              axis=1)
+        df_list[i]['LOCATION_STATE_ABBREVIATION'] = df_list[i].apply(lambda x: x.ONSHORE_STATE_ABBREVIATION
+                                                                               + x.OFFSHORE_STATE_ABBREVIATION, axis=1)
 
 
 def preliminary_fill_nan(df_list):
@@ -152,7 +150,6 @@ def fixing_datetime_column(df_list):
             return df['LOCAL_DATETIME']
 
 
-
 def change_column_type(df, df_column, new_type: str):
 
     df[df_column] = df[df_column].astype(new_type)
@@ -196,44 +193,25 @@ def renaming(df):
 
     """Rename dataframe columns"""
 
-    df = df.rename(columns={'ACCTY': 'LOCATION_CITY_NAME',
-                           'FACILITY_NAME': 'LOCATION_CITY_NAME',
-                           'ACCITY': 'LOCATION_CITY_NAME',
-                           'ACCNT': 'LOCATION_COUNTY_NAME',
-                           'ACCOUNTY': 'LOCATION_COUNTY_NAME',
-                           'ACCST': 'LOCATION_STATE_ABBREVIATION',
-                           'ACSTATE': 'LOCATION_STATE_ABBREVIATION',
-                           'FACILITY_STATE': 'LOCATION_STATE_ABBREVIATION',
-                           'ACZIP': 'LOCATION_POSTAL_CODE',
-                           'LATITUDE': 'LOCATION_LATITUDE',
-                           'LONGITUDE': 'LOCATION_LONGITUDE',
-                           'FACILITY_LATITUDE': 'LOCATION_LATITUDE',
-                           'FACILITY_LONGITUDE': 'LOCATION_LONGITUDE',
-                           'RPTID': 'REPORT_NUMBER',
-                           'INADR': 'LOCATION_STREET_ADDRESS',
-                           'CLASS': 'CLASS_LOCATION_TYPE',
-                           'COMM': 'COMMODITY_RELEASED_TYPE',
-                           'CSYS': 'SYSTEM_PART_INVOLVED',
-                           'OFFSHORE': 'ON_OFF_SHORE',
-                           'SHORE': 'ON_OFF_SHORE',
-                           'OFFSHORE_TEXT': 'ON_OFF_SHORE',
-                           'OPID': 'OPERATOR_ID',
-                           'IFED': 'FEDERAL',
-                           'INTER_INTRA': 'PIPE_FACILITY_TYPE',
-                           'INTER_TEXT': 'PIPE_FACILITY_TYPE',
-                           'INTER': 'PIPE_FACILITY_TYPE',
-                           'TFAT': 'FATAL',
-                           'EFAT': 'NUM_EMP_FATALITIES',
-                           'FAT': 'FATAL',
-                           'TINJ': 'INJURE',
-                           'EINJ': 'NUM_EMP_INJURIES',
-                           'INJ': 'INJURE',
-                           'ACPRS': 'ACCIDENT_PSIG',
-                           'INPRS': 'ACCIDENT_PSIG',
-                           'INC_PRS': 'ACCIDENT_PSIG',
-                           'MAOP': 'MOP_PSIG',
-                           'MXPRS': 'MOP_PSIG',
-                           'DSPRS': 'MOP_PSIG',
+    df.rename(columns={'ACCTY': 'LOCATION_CITY_NAME', 'FACILITY_NAME': 'LOCATION_CITY_NAME',
+                       'ACCITY': 'LOCATION_CITY_NAME', 'ACCNT': 'LOCATION_COUNTY_NAME',
+                       'ACCOUNTY': 'LOCATION_COUNTY_NAME', 'ACCST': 'LOCATION_STATE_ABBREVIATION',
+                       'ACSTATE': 'LOCATION_STATE_ABBREVIATION',
+                       'FACILITY_STATE': 'LOCATION_STATE_ABBREVIATION', 'ACZIP': 'LOCATION_POSTAL_CODE',
+                        'LATITUDE': 'LOCATION_LATITUDE', 'LONGITUDE': 'LOCATION_LONGITUDE',
+                        'FACILITY_LATITUDE': 'LOCATION_LATITUDE', 'FACILITY_LONGITUDE': 'LOCATION_LONGITUDE',
+                        'RPTID': 'REPORT_NUMBER', 'INADR': 'LOCATION_STREET_ADDRESS',
+                        'CLASS': 'CLASS_LOCATION_TYPE', 'COMM': 'COMMODITY_RELEASED_TYPE',
+                        'CSYS': 'SYSTEM_PART_INVOLVED', 'OFFSHORE': 'ON_OFF_SHORE',
+                        'SHORE': 'ON_OFF_SHORE', 'OFFSHORE_TEXT': 'ON_OFF_SHORE', 'OPID': 'OPERATOR_ID',
+                        'IFED': 'FEDERAL',  'INTER_INTRA': 'PIPE_FACILITY_TYPE', 'INTER_TEXT': 'PIPE_FACILITY_TYPE',
+                        'INTER': 'PIPE_FACILITY_TYPE', 'TFAT': 'FATAL', 'EFAT': 'NUM_EMP_FATALITIES',
+                        'FAT': 'FATAL', 'TINJ': 'INJURE', 'EINJ': 'NUM_EMP_INJURIES', 'INJ': 'INJURE',
+                        'ACPRS': 'ACCIDENT_PSIG', 'INPRS': 'ACCIDENT_PSIG',
+                        'INC_PRS': 'ACCIDENT_PSIG',
+                        'MAOP': 'MOP_PSIG',
+                        'MXPRS': 'MOP_PSIG',
+                        'DSPRS': 'MOP_PSIG',
                            'PRTST': 'MOP_CFR_SECTION',
                            'TEST': 'EX_HYDROTEST_PRESSURE',
                            'PRTLK': 'CUSTOMER_TYPE',
@@ -430,21 +408,25 @@ def processing(df_list):
 
     print('Initiating data processing...')
 
+    list_of_renamed_nan_df = []
+
     for df in df_list:
 
-        renamed_df = renaming(df)
+        renaming(df)
 
-        nan_removal(renamed_df, 20)
+        nan_removal(df, 20)
 
-        clean_df = df_clean(renamed_df, fillna_cat_col(renamed_df, nan_col_selection(renamed_df)),
-                 fillna_num_col(renamed_df, nan_col_selection(renamed_df)))
+        list_of_renamed_nan_df.append(df_clean(df, fillna_cat_col(df, nan_col_selection(df)),
+                                         fillna_num_col(df, nan_col_selection(df))))
 
-        individual_clean_df = cleaning_individual_df(clean_df)
+    cleaning_individual_df(list_of_renamed_nan_df)
 
-        mergedStuff = concatenate_df(individual_clean_df)
+    mergedStuff = concatenate_df(cleaning_individual_df(list_of_renamed_nan_df))
 
-        merged_df_datavis = final_df(mergedStuff, 6500)
-
-        return merged_df_datavis
+    merged_df_datavis = final_df(mergedStuff, 6500)
 
     print('Data processing successfully done')
+
+    return merged_df_datavis
+
+
