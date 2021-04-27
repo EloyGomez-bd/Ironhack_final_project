@@ -1,4 +1,6 @@
 import pandas as pd
+import requests
+from bs4 import BeautifulSoup
 
 columns_to_fill_zeros = ['FATAL', 'INJURE', 'INC_PRES']
 
@@ -6,6 +8,8 @@ columns_to_fill_empty = ['ONSHORE_CITY_NAME', 'OFF_ACCIDENT_ORIGIN', 'ONSHORE_CO
                          'OFFSHORE_COUNTY_NAME', 'ONSHORE_STATE_ABBREVIATION', 'OFFSHORE_STATE_ABBREVIATION']
 
 url = 'https://www.infoplease.com/us/postal-information/state-abbreviations-and-state-postal-codes'
+
+url_mileage = 'https://www.ncsl.org/research/energy/state-gas-pipelines.aspx'
 
 export_path = './data/processed/pipelines_incident.csv'
 
@@ -537,3 +541,80 @@ def visualization_df(df):
     print(f'Exporting data to {export_path}')
 
     return processed_df.to_csv(export_path)
+
+
+def scrap_mileage(url):
+
+    """ With this function we scrap an additional table with pipeline mileage we will use in data visualization"""
+
+    print(f'Scrapping pipeline mileages from {url_mileage}')
+
+    soup = BeautifulSoup(requests.get(url_mileage).content, 'html.parser')
+
+    return soup
+
+
+def find_table(soup):
+
+    """ Locate exact table with data"""
+
+    table = soup.find('table', {'class': 'NCSLGray'})
+
+    return table
+
+
+def get_rows(table):
+
+    """ Obtain and process rows from table"""
+
+    rows = table.find_all('tr')
+
+    rows = [row.text.strip().split("\n") for row in rows]
+
+    for row in rows:
+
+        list_to_remove = ["", "\r"]
+
+        for elements in list_to_remove:
+
+            while (elements in row):
+
+                row.remove(elements)
+
+    clean_list = [item.strip() for row in rows for item in row]
+
+    del clean_list[0:1]
+
+    return clean_list
+
+
+def mileage_df(list):
+
+    """ Create final dataframe from list of rows"""
+
+    df = pd.DataFrame([list[i:i + 7] for i in range(0, len(list), 7)])
+
+    df.columns = df.loc[0]
+
+    df = df.drop(df.index[0]).set_index(['Jurisdiction'])
+
+    df = df.iloc[:-1]
+
+    df.index = df.index.str.upper()
+
+    return df
+
+
+def pipeline_mileage(url):
+
+    soup = scrap_mileage(url)
+
+    table = find_table(soup)
+
+    rows_list = get_rows(table)
+
+    df = mileage_df(rows_list)
+
+    print('Creating and exporting pipeline mileage dataframe')
+
+    return df.to_csv('./data/processed/pipeline_mileage.csv')
