@@ -600,8 +600,6 @@ def mileage_df(list):
 
     df = df.iloc[:-1]
 
-    df.index = df.index.str.upper()
-
     return df
 
 
