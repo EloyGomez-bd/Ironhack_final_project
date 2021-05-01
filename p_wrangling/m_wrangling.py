@@ -40,7 +40,8 @@ columns_to_rename = {  'ACCTY': 'LOCATION_CITY_NAME', 'FACILITY_NAME': 'LOCATION
                        'PRTSY': 'ITEM_INVOLVED', 'PRTFL': 'SYSTEM_PART_DETAILS', 'PRTFL_TEXT': 'SYSTEM_PART_DETAILS',
                        'LOSS': 'UNINTENTIONAL_RELEASE_BBLS', 'RECOV': 'RECOVERED_BBLS', 'FIRE': 'IGNITE_IND',
                        'IGNITE': 'IGNITE_IND', 'EXP': 'EXPLODE_IND', 'EXPLO': 'EXPLODE_IND', 'SMYS': 'PIPE_SMYS',
-                       'CORRO': 'CORROSION_TYPE', 'UNINTENTIONAL_RELEASE': 'UNINTENTIONAL_RELEASE_BBLS'}
+                       'CORRO': 'CORROSION_TYPE', 'UNINTENTIONAL_RELEASE': 'UNINTENTIONAL_RELEASE_BBLS',
+                       'NAME' : 'OPERATOR_NAME'}
 
 columns_to_drop = ['DATAFILE_AS_OF', 'OPSTREET', 'OPCITY', 'OPCOUNTY', 'OPSTATE',
                    'OPZIP', 'PPPRP', 'PPPRPCURRENT', 'EMRPRP', 'ACSTREET',
@@ -79,7 +80,7 @@ order_of_columns = ['LOCAL_DATETIME', 'REPORT_NUMBER', 'SIGNIFICANT', 'SERIOUS',
                     'ON_OFF_SHORE', 'LOCATION_CITY_NAME', 'LOCATION_COUNTY_NAME',
                     'LOCATION_STATE_ABBREVIATION', 'INCIDENT_AREA_TYPE', 'CAUSE', 'MAP_CAUSE',
                     'MAP_SUBCAUSE', 'FATAL', 'INJURE', 'UNINTENTIONAL_RELEASE_BBLS', 'TOTAL_COST_IN84',
-                    'TOTAL_COST_CURRENT', 'ACCIDENT_PSIG', 'MOP_PSIG', 'NAME', 'OPERATOR_ID',
+                    'TOTAL_COST_CURRENT', 'ACCIDENT_PSIG', 'MOP_PSIG', 'OPERATOR_NAME', 'OPERATOR_ID',
                     'MATERIAL_INVOLVED', 'COMMODITY_RELEASED_TYPE']
 
 
@@ -526,6 +527,8 @@ def visualization_df(df):
     processed_df['LOCATION_STATE_ABBREVIATION'] = processed_df.apply(
         lambda x: replace_state(x['LOCATION_STATE_ABBREVIATION'], list(states_name['State/District']),
                                 list(states_name['Postal Code'])), axis=1)
+
+    processed_df.rename(columns={'LOCATION_STATE_ABBREVIATION' : 'LOCATION_STATE'}, inplace=True)
 
     print('Unifying values in MATERIAL_INVOLVED and INCIDENT_AREA_TYPE columns')
 
