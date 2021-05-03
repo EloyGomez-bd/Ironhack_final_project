@@ -1,6 +1,7 @@
 import argparse
 from p_acquisition.m_acquisition import df_classifier
 from p_wrangling.m_wrangling import pre_processing, processing, visualization_df, pipeline_mileage, url_mileage
+from p_reporting.m_reporting import visualization_tableau, url
 
 
 def argument_parser():
@@ -37,6 +38,8 @@ def main(arguments):
     visualization_df(merged_df)
 
     pipeline_mileage(url_mileage)
+
+    visualization_tableau(url)
 
 
 if __name__ == '__main__':

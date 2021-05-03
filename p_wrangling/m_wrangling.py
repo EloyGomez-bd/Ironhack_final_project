@@ -13,7 +13,7 @@ url_mileage = 'https://www.ncsl.org/research/energy/state-gas-pipelines.aspx'
 
 export_path = './data/processed/pipelines_incident.csv'
 
-columns_to_rename = {  'ACCTY': 'LOCATION_CITY_NAME', 'FACILITY_NAME': 'LOCATION_CITY_NAME',
+columns_to_rename = {'ACCTY': 'LOCATION_CITY_NAME', 'FACILITY_NAME': 'LOCATION_CITY_NAME',
                        'ACCITY': 'LOCATION_CITY_NAME', 'ACCNT': 'LOCATION_COUNTY_NAME',
                        'ACCOUNTY': 'LOCATION_COUNTY_NAME', 'ACCST': 'LOCATION_STATE_ABBREVIATION',
                        'ACSTATE': 'LOCATION_STATE_ABBREVIATION',
@@ -41,7 +41,7 @@ columns_to_rename = {  'ACCTY': 'LOCATION_CITY_NAME', 'FACILITY_NAME': 'LOCATION
                        'LOSS': 'UNINTENTIONAL_RELEASE_BBLS', 'RECOV': 'RECOVERED_BBLS', 'FIRE': 'IGNITE_IND',
                        'IGNITE': 'IGNITE_IND', 'EXP': 'EXPLODE_IND', 'EXPLO': 'EXPLODE_IND', 'SMYS': 'PIPE_SMYS',
                        'CORRO': 'CORROSION_TYPE', 'UNINTENTIONAL_RELEASE': 'UNINTENTIONAL_RELEASE_BBLS',
-                       'NAME' : 'OPERATOR_NAME'}
+                       'NAME': 'OPERATOR_NAME'}
 
 columns_to_drop = ['DATAFILE_AS_OF', 'OPSTREET', 'OPCITY', 'OPCOUNTY', 'OPSTATE',
                    'OPZIP', 'PPPRP', 'PPPRPCURRENT', 'EMRPRP', 'ACSTREET',
