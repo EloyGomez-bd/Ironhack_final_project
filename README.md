@@ -1,6 +1,6 @@
 # Exploration and machine learning modelling of US Pipeline Incident data over the last 20 years. 
 
-![Image](/Users/eloygomez-caromoreno/Documents/Ironhack/Ironhack_final_project/data/images/quinten-de-graaf-L4gN0aeaPY4-unsplash.jpg)
+![Image](https://github.com/EloyGomez-bd/Ironhack_final_project/blob/main/data/images/quinten-de-graaf-L4gN0aeaPY4-unsplash.jpg)
 
 This repository contains Final project of Data Analytics Bootcamp at Ironhack.
 
