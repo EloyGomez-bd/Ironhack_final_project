@@ -6,12 +6,15 @@ This repository contains Final project of Data Analytics Bootcamp at Ironhack.
 
 The main function of the program is to retrieve a clean dataset obtained from US Ministry of Transportation web. This data is messy and is divided into several categories by type of handled fluid and time intervals. The final dataset is then explored and analysed in order to look for the main insights.
 
-## Main topics
+Check it out at https://public.tableau.com/profile/eloy.gomez.caro.moreno#!/vizhome/ExplorationofPipelineIncidents/Dashboard1
+
+## Technology Stack
 
 - Python Programming
 - Handling Pandas library
-- Web Scraping
+- BeautifulSoup
 - Data Visualization using Tableau
+- Scikit-Learn
 
 
 ## Installation
@@ -20,6 +23,7 @@ Use the package manager [conda](https://docs.conda.io/projects/conda/en/latest/u
 
 ```python
 conda install pandas
+conda install -c conda-forge scikit-learn 
 ```
 
 ## Usage
@@ -36,3 +40,5 @@ Execute the file ```main.py``` from terminal or and IDE (i.e. Pycharm).
 - [Tableau Public](https://public.tableau.com/s/)
 
 - [Tableau viz of the day](https://public.tableau.com/es-es/gallery/?tab=viz-of-the-day&type=viz-of-the-day)
+
+- [Scikit-Learn](https://scikit-learn.org/stable/index.html)
