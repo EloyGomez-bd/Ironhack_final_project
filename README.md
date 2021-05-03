@@ -1,5 +1,7 @@
 # Exploration and machine learning modelling of US Pipeline Incident data over the last 20 years. 
 
+![Image](/Users/eloygomez-caromoreno/Documents/Ironhack/Ironhack_final_project/data/images/quinten-de-graaf-L4gN0aeaPY4-unsplash.jpg)
+
 This repository contains Final project of Data Analytics Bootcamp at Ironhack.
 
 The main function of the program is to retrieve a clean dataset obtained from US Ministry of Transportation web. This dataset is then explored and analysed in order to look for the main insights.
