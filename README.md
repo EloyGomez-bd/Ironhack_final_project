@@ -1,4 +1,4 @@
-# Exploration and machine learning modelling of US Pipeline Incident data over the last 20 years. 
+# Exploration and machine learning modelling of US Pipeline Incidents data over the last 20 years. 
 
 ![Image](https://github.com/EloyGomez-bd/Ironhack_final_project/blob/main/data/images/quinten-de-graaf-L4gN0aeaPY4-unsplash.jpg)
 
@@ -11,7 +11,7 @@ The main function of the program is to retrieve a clean dataset obtained from US
 - Python Programming
 - Handling Pandas library
 - Web Scraping
-- Building a Pipeline
+- Data Visualization using Tableau
 
 
 ## Installation
@@ -20,8 +20,6 @@ Use the package manager [conda](https://docs.conda.io/projects/conda/en/latest/u
 
 ```python
 conda install pandas
-conda install -c anaconda sqlalchemy
-conda install -c conda-forge tqdm
 ```
 
 ## Usage
@@ -30,7 +28,6 @@ Execute the file ```main.py``` from terminal or and IDE (i.e. Pycharm).
 
 
 ## References
-- [SQL Alchemy](https://docs.sqlalchemy.org/en/13/intro.html)
 
 - [Pandas](https://pandas.pydata.org/pandas-docs/stable/reference/index.html)
 
