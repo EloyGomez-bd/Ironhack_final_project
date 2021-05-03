@@ -32,3 +32,7 @@ Execute the file ```main.py``` from terminal or and IDE (i.e. Pycharm).
 - [Pandas](https://pandas.pydata.org/pandas-docs/stable/reference/index.html)
 
 - [Argparse](https://docs.python.org/3.7/library/argparse.html)
+
+- [Tableau Public](https://public.tableau.com/s/)
+
+- [Tableau viz of the day](https://public.tableau.com/es-es/gallery/?tab=viz-of-the-day&type=viz-of-the-day)
