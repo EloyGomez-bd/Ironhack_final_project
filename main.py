@@ -1,6 +1,7 @@
 import argparse
 from p_acquisition.m_acquisition import df_classifier
-from p_wrangling.m_wrangling import pre_processing, processing, visualization_df, pipeline_mileage, url_mileage
+from p_wrangling.m_wrangling import pre_processing, processing, visualization_df, pipeline_mileage, url_mileage,\
+    df_for_visualization, export_path, analysis_path, columns_to_drop
 from p_reporting.m_reporting import visualization_tableau, url
 
 
@@ -33,9 +34,17 @@ def main(arguments):
 
     preprocessed_df = pre_processing(list_of_datasets)
 
-    merged_df = processing(preprocessed_df)
+    merged_stuff = processing(preprocessed_df)
 
-    visualization_df(merged_df)
+    print('Creating dataframe for visualization')
+
+    visualization_df(df_for_visualization(merged_stuff), export_path)
+
+    print('Creating dataframe for machine learning modelling')
+
+    merged_stuff.drop(columns=columns_to_drop, errors='ignore', inplace=True)
+
+    merged_stuff.to_csv(analysis_path, index=False)
 
     pipeline_mileage(url_mileage)
 

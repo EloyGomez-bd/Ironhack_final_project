@@ -13,6 +13,8 @@ url_mileage = 'https://www.ncsl.org/research/energy/state-gas-pipelines.aspx'
 
 export_path = './data/processed/pipelines_incident.csv'
 
+analysis_path = './data/processed/pipelines_incident_for_modelling.csv'
+
 columns_to_rename = {'ACCTY': 'LOCATION_CITY_NAME', 'FACILITY_NAME': 'LOCATION_CITY_NAME',
                        'ACCITY': 'LOCATION_CITY_NAME', 'ACCNT': 'LOCATION_COUNTY_NAME',
                        'ACCOUNTY': 'LOCATION_COUNTY_NAME', 'ACCST': 'LOCATION_STATE_ABBREVIATION',
@@ -482,18 +484,19 @@ def processing(df_list):
         list_of_renamed_nan_df.append(df_clean(df, fillna_cat_col(df, nan_col_selection(df)),
                                                 fillna_num_col(df, nan_col_selection(df))))
 
-    merged_stuff = concatenate_df(cleaning_individual_df(list_of_renamed_nan_df))
-
-    merged_df_datavis = final_df(merged_stuff, 6500)
-
     print('Data processing successfully done')
 
-    return merged_df_datavis
+    return concatenate_df(cleaning_individual_df(list_of_renamed_nan_df))
 
 
-def visualization_df(df):
+def df_for_visualization(df):
 
-    """Return a clean datafram ready to visualization stage"""
+    return final_df(df, 6500)
+
+
+def visualization_df(df, export_path):
+
+    """Return a clean dataframe ready to visualization stage"""
 
     print('Cleaning final dataframe...')
 
@@ -543,7 +546,7 @@ def visualization_df(df):
 
     print(f'Exporting data to {export_path}')
 
-    return processed_df.to_csv(export_path)
+    return processed_df.to_csv(export_path, index_label=False)
 
 
 def scrap_mileage(url):
