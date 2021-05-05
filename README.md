@@ -4,9 +4,11 @@
 
 This repository corresponds to Final project of Data Analytics Bootcamp at Ironhack.
 
-The main function of the program is to retrieve a clean dataset obtained from US Ministry of Transportation web. This data is messy and is divided into several categories by type of handled fluid and time intervals. The final dataset with more than 18k incidents is then explored and analysed in order to look for the main insights.
+The main function of the program is to retrieve a **clean dataset** obtained from US Ministry of Transportation web. This data is messy and is divided into several categories by type of handled fluid and time intervals. The final dataset with more than 18k incidents is then explored and analysed in order to look for the main insights.
 
 Check it out at https://public.tableau.com/profile/eloy.gomez.caro.moreno#!/vizhome/ExplorationofPipelineIncidents/Dashboard1
+
+The program also deploys a **machine learning model** based on some of the original data in order to predict the total cost of a new pipeline incident which should be an input from the user.
 
 ## Technology Stack
 
@@ -29,6 +31,12 @@ conda install -c conda-forge scikit-learn
 ## Usage
 
 Execute the file ```main.py``` from terminal or and IDE (i.e. Pycharm).
+
+The program will process the files located in '/data/raw' and will redirect you to my profile on Tableau Public to checkout the results of exploration and analysis.
+
+The ML model will train automatically by executing the program, but must be the user who add the new data for prediction. Such data shall be added in the file __'incidents_predict.csv'__, located in /data/results/. This may be an exmaple:
+
+
 
 
 ## References
