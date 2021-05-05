@@ -16,6 +16,7 @@ The program also deploys a **machine learning model** based on some of the origi
 * Handling Pandas library
 * BeautifulSoup
 * Data Visualization using Tableau
+* SciPy
 * Scikit-Learn
 
 ## Installation
