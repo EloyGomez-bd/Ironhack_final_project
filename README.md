@@ -20,12 +20,16 @@ The program also deploys a **machine learning model** based on some of the origi
 
 ## Installation
 
-Use the package manager [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/) to install libraries in the environment you are executing the program. Required libraries are shown below:
+Use the package manager [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/) or [pip](https://pip.pypa.io/en/stable/cli/pip_install/) to install libraries in the environment you are executing the program. Required libraries are shown below:
 
 ```python
 conda install pandas
-conda install -c anaconda scipy
-conda install -c conda-forge scikit-learn 
+conda install numpy
+conda install -c conda-forge requests
+conda install beautifulsoup4
+conda install scipy
+conda install -c conda-forge scikit-learn
+pip install lightgbm
 ```
 
 ## Usage
