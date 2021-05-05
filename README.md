@@ -12,12 +12,13 @@ The program also deploys a **machine learning model** based on some of the origi
 
 ## Technology Stack
 
-- Python Programming
-- Handling Pandas library
-- BeautifulSoup
-- Data Visualization using Tableau
-- Scikit-Learn
-
+```
++ Python Programming
++ Handling Pandas library
++ BeautifulSoup
++ Data Visualization using Tableau
++ Scikit-Learn
+```
 
 ## Installation
 
@@ -37,7 +38,20 @@ The program will process the files located in '/data/raw' and will redirect you 
 The ML model will train automatically by executing the program, but must be the user who add the new data for prediction. Such data shall be added in the file __'incidents_predict.csv'__, located in /data/results/. This may be an exmaple:
 
 
+| id | FATAL | INJURE | UNINTENTIONAL_RELEASE_BBLS |	ACCIDENT_PSIG |	MOP_PSIG |
+| -- | ----- | ------ | -------------------------- | -------------- | -------- |
+| 0  | 1.0	 | 0.0	  | 236.0                      | 2.0	          | 100.0	   |
+| 1  | 0.0	 | 0.0	  | 42.0                       | 65.0	          | 10.0	   |
 
+|	RECOVERED_BBLS |	PIPE_DIAMETER |	PIPE_SMYS |	EX_HYDROTEST_PRESSURE |
+| -------------- | -------------- | --------- | --------------------- |
+| 25.0            | 6.0	          | 25000.0 	| 200.0	                |
+| 7.0             | 8.0	          | 25000.0 	| 120.0	                |
+
+| MANUFACTURED_YEAR | NORMAL_PSIG | ACCOMPANYING_LIQUID | SIGNIFICANT |	SERIOUS |	
+| ----------------- | ----------- | ------------------- | ----------- | ------- |
+|	2000.0	          | 12.0	      | 27.0                | YES	        | YES     |
+|	1989.0	          | 78.0	      | 12.0                | YES	        | NO      |
 
 ## References
 
