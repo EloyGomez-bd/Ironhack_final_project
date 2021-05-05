@@ -28,7 +28,7 @@ conda install -c conda-forge scikit-learn
 
 ## Usage
 
-Execute the file ```main.py``` from terminal or and IDE (i.e. Pycharm).
+Execute the file ```main.py --path './data/raw/'``` from terminal or and IDE (i.e. Pycharm).
 
 
 ## References
