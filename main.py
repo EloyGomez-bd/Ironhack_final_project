@@ -2,6 +2,7 @@ import argparse
 from p_acquisition.m_acquisition import df_classifier
 from p_wrangling.m_wrangling import pre_processing, processing, visualization_df, pipeline_mileage, url_mileage,\
     df_for_visualization, export_path, analysis_path, columns_to_drop
+from p_analysis.m_analysis import machine_learning_modelling
 from p_reporting.m_reporting import visualization_tableau, url
 
 
@@ -49,6 +50,8 @@ def main(arguments):
     pipeline_mileage(url_mileage)
 
     visualization_tableau(url)
+
+    machine_learning_modelling()
 
 
 if __name__ == '__main__':
