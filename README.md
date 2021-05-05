@@ -12,13 +12,11 @@ The program also deploys a **machine learning model** based on some of the origi
 
 ## Technology Stack
 
-```
 * Python Programming
 * Handling Pandas library
 * BeautifulSoup
 * Data Visualization using Tableau
 * Scikit-Learn
-```
 
 ## Installation
 
