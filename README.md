@@ -8,7 +8,7 @@ The main function of the program is to retrieve a **clean dataset** obtained fro
 
 Check it out at https://public.tableau.com/profile/eloy.gomez.caro.moreno#!/vizhome/ExplorationofPipelineIncidents/Dashboard1
 
-The program also deploys a **machine learning model** based on some of the original data in order to predict the total cost of a new pipeline incident which should be an input from the user.
+The program also deploys a **machine learning model** based on some of the original data in order to predict the total cost of a new pipeline incident, which should be an input from the user.
 
 ## Technology Stack
 
@@ -24,6 +24,7 @@ Use the package manager [conda](https://docs.conda.io/projects/conda/en/latest/u
 
 ```python
 conda install pandas
+conda install -c anaconda scipy
 conda install -c conda-forge scikit-learn 
 ```
 
@@ -51,6 +52,8 @@ The ML model will train automatically by executing the program, but must be the 
 |	2000.0	          | 12.0	      | 27.0                | YES	        | YES     |
 |	1989.0	          | 78.0	      | 12.0                | YES	        | NO      |
 
+As a result, the program will create a new file __'cost_prediction.csv'__ in the same folder.
+
 ## References
 
 - [Pandas](https://pandas.pydata.org/pandas-docs/stable/reference/index.html)
@@ -62,3 +65,5 @@ The ML model will train automatically by executing the program, but must be the 
 - [Tableau viz of the day](https://public.tableau.com/es-es/gallery/?tab=viz-of-the-day&type=viz-of-the-day)
 
 - [Scikit-Learn](https://scikit-learn.org/stable/index.html)
+
+- [Scipy](https://www.scipy.org/)
