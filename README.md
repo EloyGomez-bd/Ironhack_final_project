@@ -4,7 +4,7 @@
 
 This repository corresponds to Final project of Data Analytics Bootcamp at Ironhack.
 
-The main function of the program is to retrieve a **clean dataset** obtained from US Ministry of Transportation web. This data is messy and is divided into several categories by type of handled fluid and time intervals. The final dataset with more than 18k incidents is then explored and analysed in order to look for the main insights.
+The main function of the program is to retrieve a **clean dataset** obtained from US Department of Transportation website. This data is messy and is divided into several categories by type of handled fluid and time intervals. The final dataset with more than 18k incidents is then explored and analysed in order to look for the main insights.
 
 Check it out at https://public.tableau.com/profile/eloy.gomez.caro.moreno#!/vizhome/ExplorationofPipelineIncidents/Dashboard1
 
